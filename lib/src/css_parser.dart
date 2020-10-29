@@ -74,7 +74,7 @@ class ExpressionMapping {
     var text = _text.replaceFirst('#', '');
     if (text.length == 3)
       text = text.replaceAllMapped(
-          RegExp(r"[a-f]|\d"), (match) => '${match.group(0)}${match.group(0)}');
+          RegExp(r"[a-f]|\d", caseSensitive: false), (match) => '${match.group(0)}${match.group(0)}');
     int color = int.parse(text, radix: 16);
 
     if (color <= 0xffffff) {
